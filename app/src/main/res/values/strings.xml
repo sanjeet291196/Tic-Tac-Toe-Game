@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="title_activity_main__menu">TicTacToe</string>
+    <string name="human_vs_human">Human Vs Human</string>
+    <string name="human_vs_ai">Human Vs AI</string>
+    <string name="ai_vs_ai">AI Vs AI</string>
+    <string name="exit">Exit</string>
+    <string name="cancel">Cancel</string>
+    <string name="exit_dialog_msg">Exit Game?</string>
+    <string name="choose_symbol_dialog_title">Choose Symbol</string>
+
+    <string name="title_activity_game_play">TicTacToe</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="human">Human</string>
+    <string name="ai">AI</string>
+</resources>

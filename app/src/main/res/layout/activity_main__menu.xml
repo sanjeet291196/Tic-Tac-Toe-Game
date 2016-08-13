@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fullscreen_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="sanjit.tictactoe.Main_Menu">
+
+    <sanjit.tictactoe.SplashGameBoard
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="90dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="90dp"
+        android:layout_marginStart="90dp"
+        android:foregroundTint="@color/black_overlay"
+        android:foregroundTintMode="screen"
+        android:rotation="-24"
+        tools:ignore="UnusedAttribute" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/human_vs_human_button"
+        style="?metaButtonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/human_vs_human" />
+
+    <Button
+        android:id="@+id/human_vs_ai_button"
+        style="?metaButtonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/human_vs_ai" />
+
+    <Button
+        android:id="@+id/ai_vs_ai_button"
+        style="?metaButtonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ai_vs_ai" />
+
+    <Button
+        android:id="@+id/exit_button"
+        style="?metaButtonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exit" />
+
+</LinearLayout>

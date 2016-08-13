@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:orientation="vertical"
+    tools:context="sanjit.tictactoe.SplashScreen">
+
+    <sanjit.tictactoe.SplashGameBoard
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="70dp"
+        android:rotation="-20" />
+
+    <GridLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:columnCount="1"
+        android:rowCount="3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:keepScreenOn="true"
+            android:text="Tick"
+            android:textColor="#303"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:keepScreenOn="true"
+            android:text="Tac"
+            android:textColor="#303"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start"
+            android:keepScreenOn="true"
+            android:text="Toe"
+            android:textColor="#303"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+    </GridLayout>
+
+
+</LinearLayout>
