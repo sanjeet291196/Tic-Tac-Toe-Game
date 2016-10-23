@@ -9,8 +9,9 @@
     <sanjit.tictactoe.SplashGameBoard
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="70dp"
-        android:rotation="-20" />
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="10dp" />
 
     <GridLayout
         android:id="@+id/fullscreen_content"
