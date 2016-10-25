@@ -49,6 +49,15 @@
            android:layout_height="wrap_content"
            android:text="@string/ai_vs_ai" />
    -->
+
+    <Button
+        android:id="@+id/share_button"
+        style="?metaButtonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="share"
+        android:text="@string/share_with_friends" />
+
     <Button
         android:id="@+id/exit_button"
         style="?metaButtonBarButtonStyle"

@@ -124,4 +124,10 @@ public class Main_Menu extends AppCompatActivity {
         mInterstitialAd.loadAd(adRequest);
     }
 
+    public void share(View view) {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Try this tic tac toe game app. Play with your friends. And I bet you cannot defeat the AI. Try now, http://bit.ly/tictactoegameapp").putExtra(Intent.EXTRA_TITLE, " Try Tic Tac Toe Game");
+        startActivity(Intent.createChooser(shareIntent, "Share Using"));
+    }
 }
