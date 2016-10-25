@@ -9,9 +9,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 public class Main_Menu extends AppCompatActivity {
-    Button HVHButton, HVAButton, AVAButton, ExitButton;
+    Button HVHButton,
+            HVAButton,
+    //            AVAButton,
+    ExitButton;
     private View mContentView;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +32,7 @@ public class Main_Menu extends AppCompatActivity {
         startActivity(intent);
 
         HVHButton = (Button) findViewById(R.id.human_vs_human_button);
-        AVAButton = (Button) findViewById(R.id.ai_vs_ai_button);
+//        AVAButton = (Button) findViewById(R.id.ai_vs_ai_button);
         HVAButton = (Button) findViewById(R.id.human_vs_ai_button);
         ExitButton = (Button) findViewById(R.id.exit_button);
 
@@ -54,6 +61,7 @@ public class Main_Menu extends AppCompatActivity {
             }
         });
 
+/*
         AVAButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,12 +70,19 @@ public class Main_Menu extends AppCompatActivity {
                 loadGame();
             }
         });
+*/
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId((getString(R.string.interstitial_ad_unit_id)));
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         hide();
+        loadInterstitial();
+        showInterstitial();
     }
 
     @SuppressLint("InlinedApi")
@@ -91,6 +106,22 @@ public class Main_Menu extends AppCompatActivity {
         Game.totalGames = 0;
         Intent intent = new Intent(Main_Menu.this, GamePlay.class);
         startActivity(intent);
+    }
+
+    private void showInterstitial() {
+        // Show the ad if it's ready. Otherwise toast and reload the ad.
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+            loadInterstitial();
+        }
+    }
+
+    private void loadInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+//                .addTestDevice("B57E80B764791677F26544661D06015F")
+                .build();
+
+        mInterstitialAd.loadAd(adRequest);
     }
 
 }

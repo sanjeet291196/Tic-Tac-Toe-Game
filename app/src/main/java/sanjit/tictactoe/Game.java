@@ -1,14 +1,18 @@
 package sanjit.tictactoe;
 
-public class Game {
-    public static player PlayerX;
-    public static player PlayerO;
-    public static char currentPlayer;
-    public static int scoreX;
-    public static int scoreO;
-    public static int totalGames;
-    public static String msg;
-    public static String Title;
+import android.graphics.Bitmap;
 
-    public enum player {HUMAN, AI}
+class Game {
+    static player PlayerX;
+    static player PlayerO;
+    static char currentPlayer;
+    static int scoreX;
+    static int scoreO;
+    static int totalGames;
+    static String msg;
+    static String Title;
+    static int nextAction;
+    static Bitmap screenShot;
+
+    enum player {HUMAN, AI}
 }

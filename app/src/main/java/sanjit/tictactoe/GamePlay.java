@@ -1,6 +1,8 @@
 package sanjit.tictactoe;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,13 @@ public class GamePlay extends AppCompatActivity {
     int bestMoveX;
     int bestMoveY;
     private View mContentView;
+
+    public static Bitmap getScreenShot(View view) {
+        view.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+        view.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -122,20 +131,31 @@ public class GamePlay extends AppCompatActivity {
         nextMove();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (Game.nextAction == 1)
+            recreate();
+        else
+            finish();
+    }
+
     private void nextMove() {
         if (isWin(boardValues)) {
+            View rootView = findViewById(R.id.game_board_view);
+            Game.screenShot = getScreenShot(rootView);
             Game.Title = "Game Over!";
-            MessageBox messageBox = new MessageBox();
-            messageBox.setCancelable(false);
-            messageBox.show(getFragmentManager(), "Win Box");
+            Intent i = new Intent(this, ResultActivity.class);
+            startActivityForResult(i, 0);
         } else {
             if (isDraw(boardValues)) {
+                View rootView = findViewById(R.id.game_board_view);
+                Game.screenShot = getScreenShot(rootView);
                 Game.totalGames++;
                 Game.Title = "Draw Game!";
                 Game.msg = "Board is full and since no one won.The Game is Tied.";
-                MessageBox messageBox = new MessageBox();
-                messageBox.setCancelable(false);
-                messageBox.show(getFragmentManager(), "Draw Box");
+                Intent i = new Intent(this, ResultActivity.class);
+                startActivityForResult(i, 0);
             } else {
                 switch (Game.currentPlayer) {
                     case 'X':
@@ -393,7 +413,6 @@ public class GamePlay extends AppCompatActivity {
         }
         return m;
     }
-
 
     @Override
     public void recreate() {
